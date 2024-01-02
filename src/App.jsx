@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { fetchDataFromApi } from "./ultis/api";
 import { useDispatch, useSelector } from "react-redux";
 import { getApiConfiguration } from "./Redux/Slice/HomeSlice";
+import Home from "./pages/home/Home";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -20,10 +22,11 @@ const App = () => {
   };
 
   return (
-    <div className="app">
-      app
-      {url?.total_pages}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
