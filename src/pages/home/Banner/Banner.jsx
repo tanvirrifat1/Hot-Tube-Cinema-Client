@@ -35,6 +35,8 @@ const Banner = () => {
         </div>
       )}
 
+      <div className="opacity-layer"></div>
+
       <ContentWrapper>
         <div className="heroBannerContent">
           <span className="title">Welcome.</span>
