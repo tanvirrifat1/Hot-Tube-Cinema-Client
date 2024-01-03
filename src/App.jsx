@@ -36,7 +36,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      {/* <Header /> */}
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/:mediaType/:id" element={<Details />} />
@@ -46,7 +46,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<SignUp />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </BrowserRouter>
   );
 };

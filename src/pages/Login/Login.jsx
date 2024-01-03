@@ -1,14 +1,14 @@
 import React from "react";
 import "./Login.scss";
 import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
-import { FaGoogle } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   return (
     <div>
       <ContentWrapper>
-        <div className="heroBannerContent">
-          <span className="title">Welcome.</span>
+        <div className="loginBannerContent">
+          <span className="titleLog">Welcome.</span>
           <span className="subTitle">Login Here</span>
           <div className="searchInput">
             <input type="text" placeholder="Email" name="email" />
@@ -16,7 +16,7 @@ const Login = () => {
             <div className="google">
               <button>Login</button>
               <button>
-                <FaGoogle />
+                <FcGoogle />
               </button>
             </div>
           </div>
