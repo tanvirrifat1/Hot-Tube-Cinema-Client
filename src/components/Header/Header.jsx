@@ -7,11 +7,13 @@ import { HiOutlineSearch } from "react-icons/hi";
 import { SlMenu } from "react-icons/sl";
 import { VscChromeClose } from "react-icons/vsc";
 import { AuthContext } from "../Provider/AuthProvider";
+import { getUserInfo } from "../../Shared/auth.service";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
 
-  // const { role } = getUserInfo();
+  const { role } = getUserInfo();
+  console.log(role);
 
   const handleLogOut = () => {
     logOut()
