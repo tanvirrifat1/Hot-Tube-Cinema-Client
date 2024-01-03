@@ -68,29 +68,12 @@ const Login = () => {
             popup: "animate__animated animate__fadeOutUp",
           },
         });
-        navigate(from, { replcae: true });
+        navigate("/");
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        Swal.fire({
-          // title: `${errorCode} ${errorMessage}`,
-          title: `UserLogin successfully`,
-          showClass: {
-            popup: `
-      animate__animated
-      animate__fadeInUp
-      animate__faster
-    `,
-          },
-          hideClass: {
-            popup: `
-      animate__animated
-      animate__fadeOutDown
-      animate__faster
-    `,
-          },
-        });
+        console.log(errorCode, errorMessage);
       });
   };
 

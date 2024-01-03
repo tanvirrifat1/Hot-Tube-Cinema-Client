@@ -12,6 +12,7 @@ import Explore from "./pages/explore/Explore";
 import Error from "./pages/404/Error";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
+import Main from "./components/Router/Main";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -36,17 +37,17 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/:mediaType/:id" element={<Details />} />
-        <Route path="/search/:query" element={<SearchResult />} />
-        <Route path="/explore/:mediaType" element={<Explore />} />
-        <Route path="*" element={<Error />} />
+        <Route element={<Main />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/:mediaType/:id" element={<Details />} />
+          <Route path="/search/:query" element={<SearchResult />} />
+          <Route path="/explore/:mediaType" element={<Explore />} />
+          <Route path="*" element={<Error />} />
+        </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<SignUp />} />
       </Routes>
-      <Footer />
     </BrowserRouter>
   );
 };
