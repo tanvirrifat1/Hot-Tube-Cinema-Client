@@ -1,0 +1,92 @@
+@import "../../mixins.scss";
+
+.SignUpBannerContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        text-align: center;
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+        margin-top: 150px;
+        .titleLog {
+            font-size: 25px;
+            font-weight:500;
+            margin-bottom: 5px;
+            @include md {
+                margin-bottom: 5;
+                font-size: 50px;
+            }
+        }
+        .subTitle {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 40px;
+            @include md {
+                font-size: 24px;
+            }
+        }
+
+          .titleSignUp {
+        margin-top: 10px; // Add this line to set the margin-top
+        font-size: 16px; // Adjust the font size as needed
+        span {
+            font-weight: bold;
+        }
+
+        @include md {
+            margin-top: 20px; // Adjust the margin-top for larger screens
+            font-size: 18px; // Adjust the font size for larger screens
+        }
+    }
+  .searchInput {
+    display: flex;
+    flex-direction: column; /* or row, or other values based on your design */
+    align-items: center; /* Adjust as needed */
+    gap: 10px; /* Add this line to set the gap between child elements */
+    width: 100%;
+    border-radius: 30px ; /* Rounded corners on both sides */
+
+    input {
+        width: calc(100% - 100px);
+        height: 50px;
+        background-color: white;
+        outline: 0;
+        border: 0;
+        border-radius: 30px  30px;
+        padding: 0 15px;
+        font-size: 14px;
+
+        // Your existing styles for input
+        @include md {
+            width: calc(100% - 150px);
+            height: 60px;
+            font-size: 20px;
+            padding: 0 30px;
+        }
+    }
+
+    button {
+        width: 100px;
+        height: 50px;
+        background: var(--gradient);
+        color: white;
+        outline: 0;
+        border: 0;
+        border-radius:  30px 30px ;
+        font-size: 16px;
+        margin-left: 5px;
+        cursor: pointer;
+
+        // Your existing styles for button
+        @include md {
+            width: 150px;
+            height: 60px;
+            font-size: 18px;
+        }
+        
+    }
+    
+}
+    }

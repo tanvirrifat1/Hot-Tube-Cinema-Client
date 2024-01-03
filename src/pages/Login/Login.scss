@@ -27,6 +27,20 @@
                 font-size: 24px;
             }
         }
+        .titleHello {
+        margin-top: 10px; // Add this line to set the margin-top
+        font-size: 16px; // Adjust the font size as needed
+        span {
+            font-weight: bold;
+        }
+
+        @include md {
+            margin-top: 20px; // Adjust the margin-top for larger screens
+            font-size: 18px; // Adjust the font size for larger screens
+        }
+    }
+
+
   .searchInput {
     display: flex;
     flex-direction: column; /* or row, or other values based on your design */

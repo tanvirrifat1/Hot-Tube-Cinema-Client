@@ -1,13 +1,25 @@
-import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 import "./Header.scss";
 import logo from "../../assets/img/hot.png";
 import { HiOutlineSearch } from "react-icons/hi";
 import { SlMenu } from "react-icons/sl";
 import { VscChromeClose } from "react-icons/vsc";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  // const { role } = getUserInfo();
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((err) => console.log(err));
+  };
+
+  // -----------------//
   const [show, setShow] = useState("top");
   const [lastScrollY, setLastScrollY] = useState(0);
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -16,11 +28,21 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const openSearch = () => {
+    setMobileMenu(false);
+    setShowSearch(true);
+  };
+
+  const openMobileMenu = () => {
+    setMobileMenu(true);
+    setShowSearch(false);
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
   return (
-    <header className="header">
+    <header className={`header ${mobileMenu ? "mobileView" : ""} ${show}`}>
       <ContentWrapper>
         <div className="logo">
           <img src={logo} alt="" />
@@ -29,13 +51,31 @@ const Header = () => {
         <ul className="menuItems">
           <li className="menuItem">Movies</li>
           <li className="menuItem">TV Shows</li>
+          {user ? (
+            <>
+              <li onClick={handleLogOut} className="menuItem">
+                LogOut
+              </li>
+            </>
+          ) : (
+            <>
+              {" "}
+              <Link to={"/login"}>
+                <li className="menuItem">Login</li>
+              </Link>
+            </>
+          )}
           <li className="menuItem">
             <HiOutlineSearch />
           </li>
         </ul>
         <div className="mobileMenuItems">
           <HiOutlineSearch />
-          {mobileMenu ? <VscChromeClose /> : <SlMenu />}
+          {mobileMenu ? (
+            <VscChromeClose onClick={() => setMobileMenu(false)} />
+          ) : (
+            <SlMenu onClick={openMobileMenu} />
+          )}
         </div>
       </ContentWrapper>
     </header>
