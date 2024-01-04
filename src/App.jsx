@@ -14,8 +14,11 @@ import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
 import Main from "./components/Router/Main";
 import Table from "./components/Table/Table";
+import UserManage from "./components/Dasbard/UserManage";
+import { getUserInfo } from "./Shared/auth.service";
 
 const App = () => {
+  const { role } = getUserInfo();
   const dispatch = useDispatch();
 
   const { url } = useSelector((state) => state.home);
@@ -44,11 +47,21 @@ const App = () => {
           <Route path="/:mediaType/:id" element={<Details />} />
           <Route path="/search/:query" element={<SearchResult />} />
           <Route path="/explore/:mediaType" element={<Explore />} />
-          <Route path="/table" element={<Table />} />
+
           <Route path="*" element={<Error />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<SignUp />} />
+        {role === "admin" ? (
+          <>
+            <Route path="/dashBoard" element={<Table />} />
+          </>
+        ) : (
+          <>
+            <span>you are not authorized</span>
+          </>
+        )}
+        <Route path="/userManage" element={<UserManage />} />
       </Routes>
     </BrowserRouter>
   );

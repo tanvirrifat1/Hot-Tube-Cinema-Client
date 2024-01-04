@@ -10,10 +10,9 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { getUserInfo } from "../../Shared/auth.service";
 
 const Header = () => {
-  const { user, logOut } = useContext(AuthContext);
-
   const { role } = getUserInfo();
   console.log(role);
+  const { user, logOut } = useContext(AuthContext);
 
   const handleLogOut = () => {
     logOut()
@@ -93,12 +92,18 @@ const Header = () => {
           <Link to={"/"}>
             <li className="menuItem">Home</li>
           </Link>
+
           <li className="menuItem" onClick={() => navigationHandler("movie")}>
             Movies
           </li>
           <li className="menuItem" onClick={() => navigationHandler("tv")}>
             TV Shows
           </li>
+          {role === "admin" && (
+            <Link to={"/dashBoard"}>
+              <li className="menuItem">DashBoard</li>
+            </Link>
+          )}
           {user ? (
             <>
               <li onClick={handleLogOut} className="menuItem">
@@ -113,6 +118,7 @@ const Header = () => {
               </Link>
             </>
           )}
+
           <li className="menuItem">
             <HiOutlineSearch onClick={openSearch} />
           </li>
