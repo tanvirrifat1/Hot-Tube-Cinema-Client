@@ -11,11 +11,12 @@ import dayjs from "dayjs";
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 import Img from "../lazyLoadingImage/img";
 import CircleRating from "../CircleRating/CircleRating";
+import Genres from "../genres/Genres";
 
 function Carousel({ loading, data }) {
   const carouselContainer = useRef();
   const { url } = useSelector((state) => state.home);
-  console.log(url);
+
   const navigate = useNavigate();
 
   const navigation = (dir) => {
@@ -72,6 +73,7 @@ function Carousel({ loading, data }) {
                   <div className="posterBlock">
                     <Img src={posterUrl} />
                     <CircleRating rating={item.vote_average.toFixed(1)} />
+                    <Genres data={item.genre_ids.slice(0, 2)} />
                   </div>
                   <div className="textBlock">
                     <span className="title">{item.title || item.name}</span>

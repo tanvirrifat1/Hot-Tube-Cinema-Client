@@ -11,7 +11,7 @@ import { getUserInfo } from "../../Shared/auth.service";
 
 const Header = () => {
   const { role } = getUserInfo();
-  console.log(role);
+
   const { user, logOut } = useContext(AuthContext);
 
   const handleLogOut = () => {

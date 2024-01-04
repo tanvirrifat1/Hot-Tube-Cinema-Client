@@ -10,7 +10,7 @@ function SwitchTabs({ data, onTabChange }) {
     setTimeout(() => {
       setSelectedTab(index);
     }, 300);
-    onTabChange(index, tab);
+    onTabChange(tab, index);
   };
 
   return (
