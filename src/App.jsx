@@ -13,6 +13,7 @@ import Error from "./pages/404/Error";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
 import Main from "./components/Router/Main";
+import Table from "./components/Table/Table";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -43,6 +44,7 @@ const App = () => {
           <Route path="/:mediaType/:id" element={<Details />} />
           <Route path="/search/:query" element={<SearchResult />} />
           <Route path="/explore/:mediaType" element={<Explore />} />
+          <Route path="/table" element={<Table />} />
           <Route path="*" element={<Error />} />
         </Route>
         <Route path="/login" element={<Login />} />

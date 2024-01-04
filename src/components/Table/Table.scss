@@ -1,0 +1,44 @@
+
+
+@import "../../mixins.scss";
+
+$primary-color: #3498db;
+$border-color: #bdc3c7;
+
+.table-container {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid $border-color;
+  }
+
+  th {
+    background-color: $primary-color;
+    color: white;
+  }
+
+  tbody {
+    tr:nth-child(even) {
+      background-color: #ecf0f1;
+    }
+
+    tr:hover {
+      background-color: #d4e6f1;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    th, td {
+      font-size: 14px;
+    }
+  }
+}
