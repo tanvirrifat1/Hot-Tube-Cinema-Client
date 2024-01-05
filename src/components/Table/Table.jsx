@@ -90,7 +90,7 @@ const Table = () => {
       <aside class="sidebar">
         <h2>Sidebar</h2>
         <Link to={"/videoManage"}>
-          <p style={{ marginTop: "15px ", fontSize: "20px" }}>User Manage </p>
+          <p style={{ marginTop: "15px ", fontSize: "20px" }}>Video Manage </p>
         </Link>
         <Link to={"/"}>
           <p style={{ marginTop: "15px ", fontSize: "20px" }}>Home</p>

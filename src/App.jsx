@@ -17,6 +17,7 @@ import Table from "./components/Table/Table";
 
 import { getUserInfo } from "./Shared/auth.service";
 import VideoManage from "./components/Dasbard/VideoManage";
+import Cart from "./components/Cart/Cart";
 
 const App = () => {
   const { role } = getUserInfo();
@@ -66,20 +67,13 @@ const App = () => {
           <Route path="/:mediaType/:id" element={<Details />} />
           <Route path="/search/:query" element={<SearchResult />} />
           <Route path="/explore/:mediaType" element={<Explore />} />
+          <Route path="/cart" element={<Cart />} />
 
           <Route path="*" element={<Error />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<SignUp />} />
-        {role === "admin" ? (
-          <>
-            <Route path="/dashBoard" element={<Table />} />
-          </>
-        ) : (
-          <>
-            <span>you are not authorized</span>
-          </>
-        )}
+        {role === "admin" && <Route path="/table" element={<Table />} />}
         <Route path="/videoManage" element={<VideoManage />} />
       </Routes>
     </BrowserRouter>

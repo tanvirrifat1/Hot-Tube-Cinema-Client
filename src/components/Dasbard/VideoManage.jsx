@@ -8,8 +8,8 @@ const VideoManage = () => {
     <div class="container">
       <aside class="sidebar">
         <h2>Sidebar</h2>
-        <Link to={"/dashBoard"}>
-          <p style={{ marginTop: "15px ", fontSize: "20px" }}>Video Manage</p>
+        <Link to={"/table"}>
+          <p style={{ marginTop: "15px ", fontSize: "20px" }}>User Manage</p>
         </Link>
         <Link to={"/"}>
           <p style={{ marginTop: "15px ", fontSize: "20px" }}>Home</p>

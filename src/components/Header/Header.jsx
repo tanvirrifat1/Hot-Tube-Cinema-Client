@@ -96,11 +96,15 @@ const Header = () => {
           <li className="menuItem" onClick={() => navigationHandler("movie")}>
             Movies
           </li>
+
           <li className="menuItem" onClick={() => navigationHandler("tv")}>
             TV Shows
           </li>
+          <Link to={"/cart"}>
+            <li className="menuItem">Add Movies</li>
+          </Link>
           {role === "admin" && (
-            <Link to={"/dashBoard"}>
+            <Link to={"/table"}>
               <li className="menuItem">DashBoard</li>
             </Link>
           )}

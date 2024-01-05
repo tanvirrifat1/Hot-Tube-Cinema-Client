@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import "./DetailsBanner.scss";
-import { useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import useFetch from "../../../hooks/useFetch";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import { useSelector } from "react-redux";
@@ -18,6 +18,9 @@ import { AuthContext } from "../../../components/Provider/AuthProvider";
 
 export default function DetailsBanner({ video, crew }) {
   const { role } = getUserInfo();
+
+  const router = useNavigate();
+  const location = useLocation();
 
   const { user } = useContext(AuthContext);
 
@@ -42,7 +45,8 @@ export default function DetailsBanner({ video, crew }) {
     return `${hours}h${minutes > 0 ? ` ${minutes}m` : ""}`;
   };
   //   console.log(url?.backdrop + data?.backdrop_path);
-  console.log(data);
+
+  console.log(video, "video");
   const handleAddToCart = () => {
     if (user && user?.email) {
       const saveData = {
@@ -50,7 +54,8 @@ export default function DetailsBanner({ video, crew }) {
         name: data?.original_title,
         email: user?.email,
         overview: data?.overview,
-        url: url?.backdrop + data?.backdrop_path,
+        video: video?.key,
+        image: url?.backdrop + data?.backdrop_path,
         productId: data?.id,
       };
 
@@ -95,7 +100,7 @@ export default function DetailsBanner({ video, crew }) {
       {!loading ? (
         <>
           {!!data && (
-            <>
+            <React.Fragment>
               <div className="backdrop-img">
                 <Img src={url?.backdrop + data?.backdrop_path} />
               </div>
@@ -106,7 +111,7 @@ export default function DetailsBanner({ video, crew }) {
                     {data.poster_path ? (
                       <Img
                         className="posterImg"
-                        src={url.backdrop + data.poster_path}
+                        src={url?.backdrop + data?.poster_path}
                       />
                     ) : (
                       <Img className="posterImg" src={PosterFallback} />
@@ -144,21 +149,21 @@ export default function DetailsBanner({ video, crew }) {
                       <div className="description">{data?.overview}</div>
                     </div>
                     <div className="info">
-                      {data.status && (
+                      {data?.status && (
                         <div className="infoItem">
                           <span className="text bold">Status: </span>
-                          <span className="text">{data.status}</span>
+                          <span className="text">{data?.status}</span>
                         </div>
                       )}
-                      {data.release_date && (
+                      {data?.release_date && (
                         <div className="infoItem">
                           <span className="text bold">Release Date: </span>
                           <span className="text">
-                            {dayjs(data.release_date).format("MMM D, YYYY")}
+                            {dayjs(data?.release_date).format("MMM D, YYYY")}
                           </span>
                         </div>
                       )}
-                      {data.runtime && (
+                      {data?.runtime && (
                         <div className="infoItem">
                           <span className="text bold">Runtime: </span>
                           <span className="text">
@@ -217,7 +222,7 @@ export default function DetailsBanner({ video, crew }) {
                   setVideoId={setVideoId}
                 />
               </ContentWrapper>
-            </>
+            </React.Fragment>
           )}
         </>
       ) : (
