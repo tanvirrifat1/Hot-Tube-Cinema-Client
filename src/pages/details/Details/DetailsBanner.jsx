@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./DetailsBanner.scss";
 import { useParams } from "react-router-dom";
 import useFetch from "../../../hooks/useFetch";
@@ -11,8 +11,16 @@ import Genres from "../../../components/genres/Genres";
 import CircleRating from "../../../components/CircleRating/CircleRating";
 import { PlayIcon } from "./PlayIcon/PlayIcon";
 import VideoPopup from "../../../components/VideoPopoup/VideoPopup";
+import { IoAddCircleOutline } from "react-icons/io5";
+import Swal from "sweetalert2";
+import { getUserInfo } from "../../../Shared/auth.service";
+import { AuthContext } from "../../../components/Provider/AuthProvider";
 
 export default function DetailsBanner({ video, crew }) {
+  const { role } = getUserInfo();
+
+  const { user } = useContext(AuthContext);
+
   const [show, setShow] = useState(false);
   const [videoId, setVideoId] = useState(null);
 
@@ -32,6 +40,54 @@ export default function DetailsBanner({ video, crew }) {
     const hours = Math.floor(totalMinutes / 60);
     const minutes = totalMinutes % 60;
     return `${hours}h${minutes > 0 ? ` ${minutes}m` : ""}`;
+  };
+  //   console.log(url?.backdrop + data?.backdrop_path);
+  console.log(data);
+  const handleAddToCart = () => {
+    if (user && user?.email) {
+      const saveData = {
+        title: data?.title,
+        name: data?.original_title,
+        email: user?.email,
+        overview: data?.overview,
+        url: url?.backdrop + data?.backdrop_path,
+        productId: data?.id,
+      };
+
+      fetch(
+        `http://localhost:5000/api/v1/cart/create-cart?email=${user?.email}`,
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(saveData),
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.success === true) {
+            Swal.fire("Add successfully!");
+          } else {
+            Swal.fire(`Already Add To Cart`);
+            // refetch();
+          }
+        });
+    } else {
+      Swal.fire({
+        title: "Please Login First?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Login",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          router("/login", { state: { from: location } });
+        }
+      });
+    }
   };
 
   return (
@@ -70,11 +126,17 @@ export default function DetailsBanner({ video, crew }) {
                         className="playbtn"
                         onClick={() => {
                           setShow(true);
-                          setVideoId(video.key);
+                          setVideoId(video?.key);
                         }}
                       >
                         <PlayIcon />
                         <span className="text">Watch Video</span>
+                      </div>
+                      <div
+                        onClick={handleAddToCart}
+                        style={{ fontSize: "75px", marginTop: "2px" }}
+                      >
+                        <IoAddCircleOutline />
                       </div>
                     </div>
                     <div className="overview">
