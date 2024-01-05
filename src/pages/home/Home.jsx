@@ -6,6 +6,7 @@ import Banner from "./Banner/Banner";
 import Trending from "./Trending/Trending";
 import Popular from "./popular/Popular";
 import TopRated from "./TopRated/TopRated";
+import Cart from "../../components/Cart/Cart";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <Trending />
       <Popular />
       <TopRated />
+      {/* <Cart /> */}
       {/* <div style={{ height: 500 }}></div> */}
     </div>
   );
