@@ -3,17 +3,18 @@ import React from "react";
 import "./Home.scss";
 
 import Banner from "./Banner/Banner";
-import { useLocation } from "react-router-dom";
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
 import Trending from "./Trending/Trending";
+import Popular from "./popular/Popular";
+import TopRated from "./TopRated/TopRated";
 
 const Home = () => {
   return (
     <div className="homePage">
       <Banner />
       <Trending />
-      <div style={{ height: 500 }}></div>
+      <Popular />
+      <TopRated />
+      {/* <div style={{ height: 500 }}></div> */}
     </div>
   );
 };

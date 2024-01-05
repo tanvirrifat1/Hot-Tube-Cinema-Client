@@ -13,7 +13,7 @@ import Img from "../lazyLoadingImage/img";
 import CircleRating from "../CircleRating/CircleRating";
 import Genres from "../genres/Genres";
 
-function Carousel({ loading, data }) {
+function Carousel({ loading, data, endpoint }) {
   const carouselContainer = useRef();
   const { url } = useSelector((state) => state.home);
 
