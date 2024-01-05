@@ -22,6 +22,15 @@ body {
   padding: 20px;
 
 }
+.custom {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  background-color: $primary-color;
+  color: white;
+  padding: 15px;
+
+}
 
 .content {
   flex-grow: 1;

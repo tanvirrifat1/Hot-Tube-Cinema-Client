@@ -89,10 +89,12 @@ const Table = () => {
     <div class="container">
       <aside class="sidebar">
         <h2>Sidebar</h2>
-        <Link to={"/userManage"}>
-          <p style={{ marginTop: "15px ", fontSize: "20px" }}>User</p>
+        <Link to={"/videoManage"}>
+          <p style={{ marginTop: "15px ", fontSize: "20px" }}>User Manage </p>
         </Link>
-        <p style={{ marginTop: "5px ", fontSize: "20px" }}>Manage User</p>
+        <Link to={"/"}>
+          <p style={{ marginTop: "15px ", fontSize: "20px" }}>Home</p>
+        </Link>
       </aside>
 
       <main class="content">

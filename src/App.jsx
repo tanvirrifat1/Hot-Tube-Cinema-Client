@@ -14,8 +14,9 @@ import Login from "./pages/Login/Login";
 import SignUp from "./pages/SignUp/SignUp";
 import Main from "./components/Router/Main";
 import Table from "./components/Table/Table";
-import UserManage from "./components/Dasbard/UserManage";
+
 import { getUserInfo } from "./Shared/auth.service";
+import VideoManage from "./components/Dasbard/VideoManage";
 
 const App = () => {
   const { role } = getUserInfo();
@@ -79,7 +80,7 @@ const App = () => {
             <span>you are not authorized</span>
           </>
         )}
-        <Route path="/userManage" element={<UserManage />} />
+        <Route path="/videoManage" element={<VideoManage />} />
       </Routes>
     </BrowserRouter>
   );
