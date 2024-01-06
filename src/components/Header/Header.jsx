@@ -100,7 +100,7 @@ const Header = () => {
           <li className="menuItem" onClick={() => navigationHandler("tv")}>
             TV Shows
           </li>
-          <Link to={"/cart"}>
+          <Link to={"/movie"}>
             <li className="menuItem">Add Movies</li>
           </Link>
           {role === "admin" && (

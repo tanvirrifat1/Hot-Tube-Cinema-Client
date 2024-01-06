@@ -4,8 +4,7 @@ import { fetchDataFromApi } from "./ultis/api";
 import { useDispatch, useSelector } from "react-redux";
 import { getApiConfiguration, getGenres } from "./Redux/Slice/HomeSlice";
 import Home from "./pages/home/Home";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+
 import Details from "./pages/details/Details";
 import SearchResult from "./pages/searchResult/SearchResult";
 import Explore from "./pages/explore/Explore";
@@ -17,7 +16,7 @@ import Table from "./components/Table/Table";
 
 import { getUserInfo } from "./Shared/auth.service";
 import VideoManage from "./components/Dasbard/VideoManage";
-import Cart from "./components/Cart/Cart";
+import Cart from "./pages/details/Details/Cart/Cart";
 
 const App = () => {
   const { role } = getUserInfo();
@@ -67,7 +66,7 @@ const App = () => {
           <Route path="/:mediaType/:id" element={<Details />} />
           <Route path="/search/:query" element={<SearchResult />} />
           <Route path="/explore/:mediaType" element={<Explore />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/movie" element={<Cart />} />
 
           <Route path="*" element={<Error />} />
         </Route>
