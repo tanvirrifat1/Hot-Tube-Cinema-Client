@@ -13,7 +13,7 @@ import Img from "../lazyLoadingImage/img";
 import CircleRating from "../CircleRating/CircleRating";
 import Genres from "../genres/Genres";
 
-function Carousel({ loading, data, endpoint }) {
+function Carousel({ loading, data, endpoint, title }) {
   const carouselContainer = useRef();
   const { url } = useSelector((state) => state.home);
 
@@ -47,7 +47,7 @@ function Carousel({ loading, data, endpoint }) {
   return (
     <div className="carousel">
       <ContentWrapper>
-        {/* {title && <div className="carouselTitle">{title}</div>} */}
+        {title && <div className="carouselTitle">{title}</div>}
         <BsFillArrowLeftCircleFill
           className="carouselLeftNav arrow"
           onClick={() => navigation("left")}

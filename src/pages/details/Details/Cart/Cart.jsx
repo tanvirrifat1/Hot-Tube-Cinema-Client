@@ -110,6 +110,7 @@ const Cart = ({ video, crew }) => {
                       <PlayIcon />
                       <div className="videoTitle">
                         {vd?.name && vd.name.slice(0, 20)}
+                        {vd?.name2 && vd.name2.slice(0, 20)}
                       </div>
                     </div>
                   </Link>

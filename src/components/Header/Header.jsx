@@ -101,7 +101,7 @@ const Header = () => {
             TV Shows
           </li>
           <Link to={"/movie"}>
-            <li className="menuItem">Add Movies</li>
+            <li className="menuItem">save movies</li>
           </Link>
           {role === "admin" && (
             <Link to={"/table"}>

@@ -7,15 +7,17 @@
         font-size: 24px;
         color: white;
         margin-bottom: 25px;
+     
     }
     .videos {
     display: flex;
+     
     gap: 10px;
     overflow-x: auto;
     margin-right: -20px;
     margin-left: -20px;
     padding: 0 20px;
-min-height: 65vh;
+min-height: 100vh;
     margin-top: 100px;
     @media (max-width: 768px) { /* Mobile devices */
         display: grid;

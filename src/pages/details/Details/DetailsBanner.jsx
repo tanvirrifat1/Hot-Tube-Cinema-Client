@@ -29,6 +29,7 @@ export default function DetailsBanner({ video, crew }) {
 
   const { mediaType, id } = useParams();
   const { data, loading } = useFetch(`/${mediaType}/${id}`);
+  console.log(data);
 
   const { url } = useSelector((state) => state.home);
 
@@ -46,12 +47,13 @@ export default function DetailsBanner({ video, crew }) {
   };
   //   console.log(url?.backdrop + data?.backdrop_path);
 
-  console.log(video, "video");
+  // console.log(video, "video");
   const handleAddToCart = () => {
     if (user && user?.email) {
       const saveData = {
         title: data?.title,
         name: data?.original_title,
+        name2: data?.original_name,
         email: user?.email,
         overview: data?.overview,
         video: video?.key,
