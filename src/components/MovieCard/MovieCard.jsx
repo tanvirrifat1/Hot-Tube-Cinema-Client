@@ -6,6 +6,7 @@ import Img from "../lazyLoadingImage/img";
 import CircleRating from "../CircleRating/CircleRating";
 import Genres from "../genres/Genres";
 import dayjs from "dayjs";
+import PosterFallback from "../../../src/assets/img/no-poster.png";
 
 const MovieCard = ({ data, fromSearch, mediaType }) => {
   const { url } = useSelector((state) => state.home);
@@ -21,10 +22,10 @@ const MovieCard = ({ data, fromSearch, mediaType }) => {
       <div className="posterBlock">
         <Img className="posterImg" src={posterUrl} />
         {!fromSearch && (
-          <React.Fragment>
+          <>
             <CircleRating rating={data.vote_average.toFixed(1)} />
             <Genres data={data.genre_ids.slice(0, 2)} />
-          </React.Fragment>
+          </>
         )}
       </div>
       <div className="textBlock">
