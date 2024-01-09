@@ -84,10 +84,12 @@ const Header = () => {
   return (
     <header className={`header ${mobileMenu ? "mobileView" : ""} ${show}`}>
       <ContentWrapper>
-        <div className="logo">
-          <img src={logo} alt="" />
-          <h1>Hot-Tube-Cinema</h1>
-        </div>
+        <Link to={"/"}>
+          <div className="logo">
+            <img src={logo} alt="" />
+            <h1>Hot-Tube-Cinema</h1>
+          </div>
+        </Link>
         <ul className="menuItems">
           <Link to={"/"}>
             <li className="menuItem">Home</li>

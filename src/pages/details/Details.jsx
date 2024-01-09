@@ -5,7 +5,8 @@ import useFetch from "../../hooks/useFetch";
 import DetailsBanner from "./Details/DetailsBanner";
 import Cast from "./Details/Cast/Cast";
 import VideoSection from "./Details/VideoSection/VideoSection";
-import Cart from "./Details/Cart/Cart";
+import Similar from "../carousel/Similar";
+import Recommendation from "../carousel/Recomendation";
 
 const Details = () => {
   const { mediaType, id } = useParams();
@@ -19,7 +20,8 @@ const Details = () => {
       <DetailsBanner video={data?.results?.[0]} crew={credits?.crew} />
       <Cast data={credits?.cast} loading={creditsLoading} />
       <VideoSection data={data} loading={loading} />
-      {/* <Cart video={data?.results?.[0]} crew={credits?.crew} /> */}
+      <Similar mediaType={mediaType} id={id} />
+      <Recommendation mediaType={mediaType} id={id} />
     </div>
   );
 };

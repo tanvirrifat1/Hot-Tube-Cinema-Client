@@ -12,6 +12,7 @@ import ContentWrapper from "../contentWrapper/ContentWrapper";
 import Img from "../lazyLoadingImage/img";
 import CircleRating from "../CircleRating/CircleRating";
 import Genres from "../genres/Genres";
+import PosterFallback from "../../assets/img/no-poster.png";
 
 function Carousel({ loading, data, endpoint, title }) {
   const carouselContainer = useRef();
