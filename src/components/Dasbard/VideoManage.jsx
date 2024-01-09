@@ -18,7 +18,7 @@ const VideoManage = () => {
 
       <main class="content">
         <table class="custom-table">
-          <p className="custom">Submit your link's</p>
+          {/* <p className="custom">Submit your link's</p> */}
           <tbody>
             <div>
               <ContentWrapper>

@@ -88,8 +88,11 @@ const Login = () => {
               <input type="text" placeholder="Email" name="email" />
               <input type="password" placeholder="Password" name="password" />
               <div className="google">
-                <button>Login</button>
-                <button onClick={handleGoogleLogin}>
+                <button style={{ fontSize: "20px" }}>Login</button>
+                <button
+                  onClick={handleGoogleLogin}
+                  style={{ fontSize: "25px", marginTop: "5px" }}
+                >
                   <FcGoogle />
                 </button>
               </div>

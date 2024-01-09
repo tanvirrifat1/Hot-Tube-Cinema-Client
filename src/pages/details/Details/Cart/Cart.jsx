@@ -37,8 +37,6 @@ const Cart = ({ video, crew }) => {
     },
   });
 
-  console.log(cart);
-
   const loadingSkeleton = () => {
     return (
       <div className="skItem">

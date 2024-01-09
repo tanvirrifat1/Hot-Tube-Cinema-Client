@@ -29,7 +29,6 @@ export default function DetailsBanner({ video, crew }) {
 
   const { mediaType, id } = useParams();
   const { data, loading } = useFetch(`/${mediaType}/${id}`);
-  console.log(data);
 
   const { url } = useSelector((state) => state.home);
 
@@ -75,7 +74,9 @@ export default function DetailsBanner({ video, crew }) {
         .then((data) => {
           console.log(data);
           if (data.success === true) {
-            Swal.fire("Add successfully!");
+            Swal.fire("Movie save successfully!");
+
+            router("/movie");
           } else {
             Swal.fire(`Already Add To Cart`);
             // refetch();
