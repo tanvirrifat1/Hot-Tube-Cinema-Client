@@ -30,9 +30,10 @@ const Cart = ({ video, crew }) => {
     queryKey: [],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/api/v1/cart?email=${user?.email}`
+        `https://hot-tube-cimena-server.vercel.app/api/v1/cart?email=${user?.email}`
       );
       const jsonData = await res.json();
+
       return jsonData.data; // Assuming your data is inside a 'data' property
     },
   });
@@ -58,7 +59,7 @@ const Cart = ({ video, crew }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/api/v1/cart/${id}`, {
+        fetch(`https://hot-tube-cimena-server.vercel.app/api/v1/cart/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -86,6 +87,10 @@ const Cart = ({ video, crew }) => {
       </div>
     );
   }
+
+  // if (isLoading) {
+  //   return <p style={{ fontSize: "20px" }}>Loading....</p>;
+  // }
 
   return (
     <div className="videosSections">

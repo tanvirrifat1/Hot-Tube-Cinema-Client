@@ -91,7 +91,9 @@ const Header = () => {
           </div>
         </Link>
         <ul className="menuItems">
-          <Link to={"/"}>{/* <li className="menuItem">Home</li> */}</Link>
+          <Link to={"/"}>
+            <li className="menuItem">Home</li>
+          </Link>
 
           <li className="menuItem" onClick={() => navigationHandler("movie")}>
             Movies

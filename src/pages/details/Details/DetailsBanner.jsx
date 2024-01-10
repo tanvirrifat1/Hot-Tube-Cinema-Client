@@ -61,7 +61,7 @@ export default function DetailsBanner({ video, crew }) {
       };
 
       fetch(
-        `http://localhost:5000/api/v1/cart/create-cart?email=${user?.email}`,
+        `https://hot-tube-cimena-server.vercel.app/api/v1/cart/create-cart?email=${user?.email}`,
         {
           method: "POST",
           headers: {
@@ -72,7 +72,6 @@ export default function DetailsBanner({ video, crew }) {
       )
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           if (data.success === true) {
             Swal.fire("Movie save successfully!");
 

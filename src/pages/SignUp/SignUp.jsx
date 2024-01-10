@@ -50,13 +50,16 @@ const SignUp = () => {
                     image: imgData.data.display_url,
                     password: data.password,
                   };
-                  fetch("http://localhost:5000/api/v1/user", {
-                    method: "POST",
-                    headers: {
-                      "content-type": "application/json",
-                    },
-                    body: JSON.stringify(saveUser),
-                  })
+                  fetch(
+                    "https://hot-tube-cimena-server.vercel.app/api/v1/user",
+                    {
+                      method: "POST",
+                      headers: {
+                        "content-type": "application/json",
+                      },
+                      body: JSON.stringify(saveUser),
+                    }
+                  )
                     .then((res) => res.json())
                     .then((data) => {
                       if (data) {
@@ -91,7 +94,7 @@ const SignUp = () => {
 
   const handleData = (data) => {
     axios
-      .post("http://localhost:5000/api/v1/auth/login", {
+      .post("https://hot-tube-cimena-server.vercel.app/api/v1/auth/login", {
         email: data?.data?.email,
       })
       .then((data) => {
@@ -109,7 +112,7 @@ const SignUp = () => {
           image: user.photoURL,
         };
 
-        fetch("http://localhost:5000/api/v1/user", {
+        fetch("https://hot-tube-cimena-server.vercel.app/api/v1/user", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -121,9 +124,12 @@ const SignUp = () => {
             console.log(user?.data?.email);
             if (user) {
               axios
-                .post("http://localhost:5000/api/v1/auth/login", {
-                  email: user?.data?.email,
-                })
+                .post(
+                  "https://hot-tube-cimena-server.vercel.app/api/v1/auth/login",
+                  {
+                    email: user?.data?.email,
+                  }
+                )
                 .then((data) => {
                   console.log(data?.data);
                 });

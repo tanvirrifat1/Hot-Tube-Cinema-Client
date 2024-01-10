@@ -26,7 +26,7 @@ const Login = () => {
           image: user.photoURL,
         };
 
-        fetch("http://localhost:5000/api/v1/user", {
+        fetch("https://hot-tube-cimena-server.vercel.app/api/v1/user", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -37,9 +37,12 @@ const Login = () => {
           .then((user) => {
             if (user) {
               axios
-                .post("http://localhost:5000/api/v1/auth/login", {
-                  email: user?.data?.email,
-                })
+                .post(
+                  "https://hot-tube-cimena-server.vercel.app/api/v1/auth/login",
+                  {
+                    email: user?.data?.email,
+                  }
+                )
                 .then((data) => {
                   console.log(data?.data);
                 });

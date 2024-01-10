@@ -16,17 +16,20 @@ const Table = () => {
   const { data, refetch, isLoading } = useQuery({
     queryKey: [],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/api/v1/user", {
-        headers: {
-          authorization: token,
-        },
-      });
+      const res = await fetch(
+        "https://hot-tube-cimena-server.vercel.app/api/v1/user",
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
       return res.json();
     },
   });
 
   const handleUpdate = (id) => {
-    fetch(`http://localhost:5000/api/v1/user/${id}`, {
+    fetch(`https://hot-tube-cimena-server.vercel.app/api/v1/user/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -50,7 +53,7 @@ const Table = () => {
   };
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/api/v1/user/${id}`, {
+    fetch(`https://hot-tube-cimena-server.vercel.app/api/v1/user/${id}`, {
       method: "DELETE",
       headers: {
         authorization: token,
@@ -88,12 +91,14 @@ const Table = () => {
   return (
     <div class="container">
       <aside class="sidebar">
-        <h2>Sidebar</h2>
-        <Link to={"/videoManage"}>
+        <h2>Hot-Tube-Cinema</h2>
+        {/* <Link to={"/videoManage"}>
           <p style={{ marginTop: "15px ", fontSize: "20px" }}>Video Manage </p>
-        </Link>
+        </Link> */}
         <Link to={"/"}>
-          <p style={{ marginTop: "15px ", fontSize: "20px" }}>Home</p>
+          <p style={{ marginTop: "15px ", fontSize: "20px", color: "black" }}>
+            Home
+          </p>
         </Link>
       </aside>
 

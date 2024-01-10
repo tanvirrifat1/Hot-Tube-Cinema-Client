@@ -56,7 +56,7 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       if (currentUser) {
         axios
-          .post("http://localhost:5000/api/v1/auth/login", {
+          .post("https://hot-tube-cimena-server.vercel.app/api/v1/auth/login", {
             email: currentUser.email,
           })
           .then((data) => {
